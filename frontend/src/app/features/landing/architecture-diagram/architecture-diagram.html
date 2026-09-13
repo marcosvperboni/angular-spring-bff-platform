@@ -1,0 +1,35 @@
+<div class="diagram" role="img" aria-label="Angular calls the Frontend BFF, which calls the Spring Cloud Gateway, which fans out to the Customer, Product, Order and Payment services">
+  <div class="node node--primary">
+    <mat-icon>web</mat-icon>
+    <span>Angular</span>
+  </div>
+
+  <div class="arrow"></div>
+
+  <div class="node node--primary">
+    <mat-icon>hub</mat-icon>
+    <span>Frontend BFF</span>
+  </div>
+
+  <div class="arrow"></div>
+
+  <div class="node node--primary">
+    <mat-icon>router</mat-icon>
+    <span>Spring Cloud Gateway</span>
+  </div>
+
+  <div class="branch">
+    <div class="branch__stem"></div>
+    <div class="branch__row">
+      @for (service of services; track service.label) {
+        <div class="branch__col">
+          <div class="branch__connector"></div>
+          <div class="node node--service">
+            <mat-icon>{{ service.icon }}</mat-icon>
+            <span>{{ service.label }}</span>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

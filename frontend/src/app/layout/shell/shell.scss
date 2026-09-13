@@ -1,0 +1,52 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--app-surface);
+  color: var(--app-text);
+  border-bottom: 1px solid var(--app-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  mat-icon:first-child {
+    color: var(--app-accent);
+  }
+}
+
+.toolbar__title {
+  font-weight: 600;
+}
+
+.toolbar__spacer {
+  flex: 1 1 auto;
+}
+
+.shell {
+  height: calc(100% - 64px);
+  background: var(--app-bg);
+}
+
+.shell__sidenav {
+  width: 240px;
+  background: var(--app-surface);
+  border-right: 1px solid var(--app-border);
+}
+
+.shell__content {
+  padding: var(--space-5);
+}
+
+::ng-deep .active-link {
+  background: color-mix(in srgb, var(--app-accent) 12%, transparent);
+  color: var(--app-accent) !important;
+
+  mat-icon {
+    color: var(--app-accent) !important;
+  }
+}

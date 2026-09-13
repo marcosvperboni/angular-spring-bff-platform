@@ -1,0 +1,64 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  background: var(--app-bg);
+  padding: var(--space-4);
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.login__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+  max-width: 360px;
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: 16px;
+  box-shadow: var(--app-shadow);
+  padding: var(--space-5);
+}
+
+.login__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--app-accent);
+  font-weight: 600;
+  align-self: center;
+}
+
+.login__title {
+  margin: 0 0 var(--space-2);
+  text-align: center;
+  color: var(--app-text);
+}
+
+.login__error {
+  margin: 0;
+  color: #d32f2f;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.login__submit {
+  height: 44px;
+}
+
+.login__back {
+  text-align: center;
+  color: var(--app-text-muted);
+  font-size: 0.875rem;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
