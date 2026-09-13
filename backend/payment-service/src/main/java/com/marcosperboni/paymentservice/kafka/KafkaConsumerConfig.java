@@ -34,6 +34,10 @@ public class KafkaConsumerConfig {
 		config.put(ErrorHandlingDeserializer.VALUE_DESERIALIZER_CLASS, JsonDeserializer.class);
 		config.put(JsonDeserializer.VALUE_DEFAULT_TYPE, OrderCreatedEvent.class.getName());
 		config.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
+		// order-service publishes its own package-local OrderCreatedEvent; ignore the producer's
+		// __TypeId__ header (which names a class that doesn't exist in this service) and always
+		// deserialize into our local record instead.
+		config.put(JsonDeserializer.USE_TYPE_INFO_HEADERS, false);
 		return new DefaultKafkaConsumerFactory<>(config);
 	}
 

@@ -63,7 +63,7 @@ docker compose up --build
 podman compose up --build
 ```
 
-This brings up Postgres, Redis, Kafka, all four microservices, the BFF gateway (`:8080`) and the built Angular app served via Nginx (`:4200`).
+This brings up Postgres, Redis, Kafka, all four microservices, the BFF gateway (`:8080`) and the built Angular app served via Nginx (`:4300`).
 
 ### Running each piece by hand
 

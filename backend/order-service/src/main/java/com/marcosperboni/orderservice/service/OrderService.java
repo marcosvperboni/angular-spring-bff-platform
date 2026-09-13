@@ -33,14 +33,17 @@ public class OrderService {
 		this.kafkaTemplate = kafkaTemplate;
 	}
 
+	@Transactional(readOnly = true)
 	public List<OrderDto> findAll() {
 		return orderRepository.findAll().stream().map(OrderMapper::toDto).toList();
 	}
 
+	@Transactional(readOnly = true)
 	public OrderDto findById(UUID id) {
 		return OrderMapper.toDto(getOrderOrThrow(id));
 	}
 
+	@Transactional(readOnly = true)
 	public List<OrderDto> findByCustomerId(UUID customerId) {
 		return orderRepository.findByCustomerId(customerId).stream().map(OrderMapper::toDto).toList();
 	}
