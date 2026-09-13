@@ -3,7 +3,7 @@ package com.marcosperboni.angularbff.client;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.marcosperboni.angularbff.dto.ProductDto;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.redis.core.ReactiveRedisTemplate;
+import org.springframework.data.redis.core.ReactiveStringRedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
@@ -21,11 +21,11 @@ public class ProductServiceClient {
     private static final Duration CACHE_TTL = Duration.ofSeconds(30);
 
     private final WebClient webClient;
-    private final ReactiveRedisTemplate<String, String> redisTemplate;
+    private final ReactiveStringRedisTemplate redisTemplate;
     private final ObjectMapper objectMapper;
 
     public ProductServiceClient(WebClient.Builder builder,
-            ReactiveRedisTemplate<String, String> redisTemplate,
+            ReactiveStringRedisTemplate redisTemplate,
             ObjectMapper objectMapper,
             @Value("${services.product.url:http://localhost:8082}") String baseUrl) {
         this.webClient = builder.baseUrl(baseUrl).build();
